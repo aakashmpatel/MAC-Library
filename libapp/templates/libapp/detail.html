@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+</head>
+<body>
+{% extends 'libapp/base.html' %}
+{% block body_block %}
+{% if itemlist %}
+    {% for item in itemlist %}
+        {% if item.id == item_id|add:0 %}
+            {% if item.itemtype == "Book" %}
+                {% for books in booklist %}
+                    {% if books.id == item_id|add:0 %}
+                        <h2>List of Library items</h2>
+                        <ol>
+                            {{ item.pubyr }} {{ item.title}} {{ books.author }}
+                        </ol>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+{% if itemlist %}
+    {% for item in itemlist %}
+        {% if item.id == item_id|add:0 %}
+            {% if item.itemtype == "DVD" %}
+                {% for dvds in dvdlist %}
+                    {% if dvds.id == item_id|add:0 %}
+                        <h2>List of Library items</h2>
+                        <ol>
+                             {{ item.pubyr }} {{ item.title}} {{ dvds.maker }} {{ dvds.rating }} {{ dvds.duration }}
+                        </ol>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+
+
+
+
+{% endblock %}
+</body>
+</html>

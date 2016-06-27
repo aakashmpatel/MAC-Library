@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+<head>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'libapp/style.css' %}" />
+
+<title>MAC Library APP - {% block title %}Welcome!{% endblock %}</title>
+</head>
+
+<body>
+{% if request.user.is_authenticated %}
+<div class="now">
+    <a class="logout" href="{% url 'libapp:logout' %}">Logout</a>
+    <a class="myitems" href="{% url 'libapp:myitems' %}">MyItems</a>
+</div>
+{% else %}
+<div class="now">
+    <a class="login" href="{% url 'libapp:login' %}">Login</a>
+    <a class="register" href="{% url 'libapp:register' %}">Register</a>
+</div>
+{% endif %}
+<div>
+<h1>{% block myhdg %}Hello {{ request.user.first_name }} {% endblock %}</h1>
+            {% block body_block %}*** {% endblock %}
+</div>
+<hr />
+<div>
+<ul>
+
+    <footer>
+        <li class="hbar1"><a href = "{% url 'libapp:index' %}">Click here to return to main page</a><br/></li>
+        <li class="hbar1"><a href="{% url 'libapp:about' %}">About page</a></li>
+    </footer>
+</ul>
+</div>
+</body>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About </title>
+</head>
+<body>
+{% extends 'libapp/base.html' %}
+{% block body_block %}
+<p><a href="{% url 'libapp:index' %}">Home Page</a></p> #Url Namespacing
+<p><a href="/libapp/">Home page</a></p>   #Hard-coded
+
+    <h3>Page has been visited: {{ visit  }}</h3>
+{% endblock %}
+</body>
+</html>

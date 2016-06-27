@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<body>
+{% extends 'libapp/base.html' %}
+{% block body_block %}
+      <p>Lucky Number : {{ luckynum }}</p>
+    <form class="loginform" action="{% url 'libapp:login' %}" method="post">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Login</button>
+
+
+    </form>
+{% endblock %}
+</form>
+</body>
+</html>

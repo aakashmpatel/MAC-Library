@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Suggestions</title>
+</head>
+<body>
+
+{% extends 'libapp/base.html' %}
+{% block body_block %}
+   {% if itemlist %}
+        <h2>List of Suggested items</h2>
+        <ol>
+            {% for item in itemlist %}
+                {% if item.type == 1 %}
+                    <li>{{ item }}  Type: Book </li>
+                {% else %}
+                    <li>{{ item }} Type: DVD</li>
+                {% endif %}
+            {% endfor %}
+        </ol>
+
+    {% else %}
+        <strong>There are no available items!</strong>
+    {% endif %}
+
+
+
+
+
+{% endblock %}
+</body>
+</html>
