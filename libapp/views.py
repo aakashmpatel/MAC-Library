@@ -141,6 +141,8 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
+                luck_num = random.randint(1, 9)
+                request.session['luckynum'] = luck_num
                 return HttpResponseRedirect(reverse('libapp:index'))
             else:
                 return HttpResponse('Your account is disabled.')
@@ -148,9 +150,8 @@ def user_login(request):
             return HttpResponse('Invalid login details.')
     else:
         form = LoginForm()
-        luck_num = random.randint(1,9)
-        request.session['luckynum'] = luck_num
-        return render(request, 'libapp/login.html',{'form':form,'luckynum':luck_num})
+
+        return render(request, 'libapp/login.html',{'form':form})
 
 @login_required
 def user_logout(request):

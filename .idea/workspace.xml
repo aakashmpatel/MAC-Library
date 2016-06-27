@@ -4,6 +4,8 @@
     <list default="true" id="d97a850e-ed8e-4450-b347-940f6ed13ab5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.sqlite3" afterPath="$PROJECT_DIR$/test.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libapp/static/libapp/style.css" afterPath="$PROJECT_DIR$/libapp/static/libapp/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libapp/templates/libapp/index.html" afterPath="$PROJECT_DIR$/libapp/templates/libapp/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libapp/templates/libapp/login.html" afterPath="$PROJECT_DIR$/libapp/templates/libapp/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libapp/views.py" afterPath="$PROJECT_DIR$/libapp/views.py" />
     </list>
@@ -40,11 +42,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/libapp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="152" column="84" selection-start-line="152" selection-start-column="84" selection-end-line="152" selection-end-column="84" />
+            <state relative-caret-position="150">
+              <caret line="145" column="67" selection-start-line="145" selection-start-column="67" selection-end-line="145" selection-end-column="67" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -55,8 +57,18 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/libapp/templates/libapp/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="195">
+              <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/libapp/static/libapp/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -65,8 +77,8 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/libapp/templates/libapp/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+            <state relative-caret-position="135">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -75,8 +87,8 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/libapp/templates/libapp/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+            <state relative-caret-position="113">
+              <caret line="13" column="35" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -147,7 +159,6 @@
         <option value="$PROJECT_DIR$/libapp/templates/libapp/newitem.html" />
         <option value="$PROJECT_DIR$/libapp/templates/libapp/suggestions.html" />
         <option value="$PROJECT_DIR$/libapp/templates/libapp/search.html" />
-        <option value="$PROJECT_DIR$/libapp/static/libapp/style.css" />
         <option value="$PROJECT_DIR$/libapp/forms.py" />
         <option value="$PROJECT_DIR$/libapp/admin.py" />
         <option value="$PROJECT_DIR$/libapp/urls.py" />
@@ -155,8 +166,9 @@
         <option value="$PROJECT_DIR$/libapp/templates/libapp/myitems.html" />
         <option value="$PROJECT_DIR$/libapp/templates/libapp/about.html" />
         <option value="$PROJECT_DIR$/libapp/views.py" />
-        <option value="$PROJECT_DIR$/libapp/templates/libapp/index.html" />
         <option value="$PROJECT_DIR$/libapp/templates/libapp/login.html" />
+        <option value="$PROJECT_DIR$/libapp/templates/libapp/index.html" />
+        <option value="$PROJECT_DIR$/libapp/static/libapp/style.css" />
       </list>
     </option>
   </component>
@@ -983,13 +995,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libapp/static/libapp/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libapp/templates/libapp/search.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1113,6 +1118,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="975">
           <caret line="93" column="5" selection-start-line="93" selection-start-column="5" selection-end-line="93" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1124,37 +1130,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/libapp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="145" column="67" selection-start-line="145" selection-start-column="67" selection-end-line="145" selection-end-column="67" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/libapp/templates/libapp/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+        <state relative-caret-position="113">
+          <caret line="13" column="35" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/libapp/templates/libapp/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+        <state relative-caret-position="135">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/libapp/templates/libapp/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="195">
+          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libapp/views.py">
+    <entry file="file://$PROJECT_DIR$/libapp/static/libapp/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="152" column="84" selection-start-line="152" selection-start-column="84" selection-end-line="152" selection-end-column="84" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>

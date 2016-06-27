@@ -5,10 +5,9 @@
     <title>Login</title>
 </head>
 <body>
-<body>
 {% extends 'libapp/base.html' %}
 {% block body_block %}
-      <p>Lucky Number : {{ luckynum }}</p>
+
     <form class="loginform" action="{% url 'libapp:login' %}" method="post">
     {% csrf_token %}
 
@@ -18,6 +17,5 @@
 
     </form>
 {% endblock %}
-</form>
 </body>
 </html>

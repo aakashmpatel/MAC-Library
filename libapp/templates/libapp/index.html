@@ -5,7 +5,13 @@
 
 {% endblock %}
 {% block body_block %}
-
+    <div class="luckynum">
+    {% if request.user.is_authenticated %}
+    <p>Lucky Num : {{ request.session.luckynum }}</p>
+    {% else %}
+    <p>Lucky Num : 0 </p>
+    {% endif %}
+    </div>
     {% if itemlist %}
         <h2>List of Library items</h2>
         <ol>
