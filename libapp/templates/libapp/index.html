@@ -5,7 +5,7 @@
     <div class="container">
     <div class="row">
         <div class="col-sm-12 col-md-12">
-            <h2 class="text-center">List of Library items</h2>
+            <h1 class="text-center"><span class="index_heading">List of Library items</span></h1>
         </div>
     </div>
     </div>
@@ -16,19 +16,19 @@
         <div class="col-md-12">
 
                 <div class="col-md-4 col-md-offset-3">
-                    <h1><i class="fa fa-book" aria-hidden="true">Book</i></h1>
+                    <h1><i class="fa fa-book text-center" aria-hidden="true"></i></h1>
                     {% for item in itemlist %}
                         {% if item.itemtype == "Book" %}
-                            <h4 style="padding-top: 8%"><a href="{% url 'libapp:detail' item.id %}">{{ item.title}}</a></h4>
+                            <h4 style="padding-top: 3%"><a href="{% url 'libapp:detail' item.id %}">{{ item.title}}</a></h4>
                         {% endif %}
                     {% endfor %}
                 </div>
 
                 <div class="col-md-4">
-                    <h1><i class="glyphicon glyphicon-cd" aria-hidden="true">DVD</i></h1>
+                    <h1><i class="glyphicon glyphicon-cd text-center" aria-hidden="true"></i></h1>
                     {% for item in itemlist %}
                     {% if item.itemtype == "DVD" %}
-                        <h4 style="padding-top: 8%"><a href="{% url 'libapp:detail' item.id %}">{{ item.title}}</a></h4>
+                        <h4 style="padding-top: 3%"><a href="{% url 'libapp:detail' item.id %}">{{ item.title}}</a></h4>
                     {% endif %}
                     {% endfor %}
                 </div>

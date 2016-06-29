@@ -1,3 +1,33 @@
 body{
+    font-family: 'Assistant', sans-serif;
+    padding-bottom: 70px;
+}
 
+.navbar-fixed-bottom{
+    background-color: #eee;
+}
+
+.table td, th{
+    text-align: center;
+}
+
+.padding-3{
+    padding-bottom: 3%;
+}
+
+.navbar .navbar-nav li{
+    color: #000;
+}
+
+.fa-book{
+    font-size: 100px !important;
+}
+
+.glyphicon-cd{
+    font-size: 100px;
+}
+
+.index_heading{
+    font-size: 60px;
+    border-bottom: 3px solid #aaa;
 }
