@@ -13,9 +13,9 @@
         <ol>
             {% for item in itemlist %}
                 {% if item.type == 1 %}
-                    <li>{{ item }}  Type: Book </li>
+                   <li> <a href="{% url 'libapp:info' item.id%}">{{ item }}  Type: Book </a></li>
                 {% else %}
-                    <li>{{ item }} Type: DVD</li>
+                     <li><a href="{% url 'libapp:info' item.id%}">{{ item }} Type: DVD</a></li>
                 {% endif %}
             {% endfor %}
         </ol>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail Info Of Suggestion</title>
+</head>
+<body>
+{% extends 'libapp/base.html' %}
+{% block body_block %}
+    {% if suggestionlist %}
+        {% for suggestion in suggestionlist %}
+            {% if suggestion.id == item_id|add:0 %}
+                {% if suggestion.type == 1 %}
+                    <h2>Detailed Info for {{ suggestion.title }}</h2>
+                        <ol>
+                            Title : {{ suggestion.title }}
+                        </ol>
+                        <ol>
+                            Publication Year : {{ suggestion.pubyr }}
+                        </ol>
+                        <ol>
+                            Type:Book
+                        </ol>
+                        <ol>
+                            Cost : {{ suggestion.cost }}
+                        </ol>
+                        <ol>
+                            Comments : {{ suggestion.comments }}
+                        </ol>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    {% if suggestionlist %}
+        {% for suggestion in suggestionlist %}
+            {% if suggestion.id == item_id|add:0 %}
+                {% if suggestion.type == 2 %}
+                    <h2>Detailed Info for {{ suggestion.title }}</h2>
+                        <ol>
+                            Title : {{ suggestion.title }}
+                        </ol>
+                        <ol>
+                            Publication Year : {{ suggestion.pubyr }}
+                        </ol>
+                        <ol>
+                            Type:DVD
+                        </ol>
+                        <ol>
+                            Cost : {{ suggestion.cost }}
+                        </ol>
+                        <ol>
+                            Comments : {{ suggestion.comments }}
+                        </ol>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+</body>
+</html>

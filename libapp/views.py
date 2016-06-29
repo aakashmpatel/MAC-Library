@@ -3,12 +3,13 @@ import pprint
 import random
 # Create your views here.
 from django.http import HttpResponse,Http404,HttpResponseRedirect
-from libapp.models import Book, Dvd, LibUser, Libitem,Suggestion
-from libapp.forms import SuggestionForm,SearchlibForm,LoginForm
+from libapp.models import Book, Dvd, LibUser, Libitem,Suggestion,User
+from libapp.forms import SuggestionForm,SearchlibForm,LoginForm,RegisterForm
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
+from libapp.validators import validate_pubyr
 
 
 # Create your views here.
@@ -85,14 +86,17 @@ def detail(request,item_id):
     return render(request,'libapp/detail.html',{'item_id':item_id,'booklist':booklist,'dvdlist':dvdlist,'itemlist':itemlist})
 
 def suggestions(request):
-    suggestionlist = Suggestion.objects.all()[:10]
+    suggestionlist = Suggestion.objects.all()
     return render(request, 'libapp/suggestions.html', {'itemlist': suggestionlist})
 
 def newitem(request):
     suggestions = Suggestion.objects.all()
     if request.method == 'POST':
         form = SuggestionForm(request.POST)
+
         if form.is_valid():
+            pubyr = request.POST.get("pubyr")
+            validate_pubyr(int(pubyr))
             suggestion = form.save(commit=False)
             suggestion.num_interested = 1
             suggestion.save()
@@ -143,6 +147,7 @@ def user_login(request):
                 login(request, user)
                 luck_num = random.randint(1, 9)
                 request.session['luckynum'] = luck_num
+                request.session.set_expiry(3600)
                 return HttpResponseRedirect(reverse('libapp:index'))
             else:
                 return HttpResponse('Your account is disabled.')
@@ -160,7 +165,21 @@ def user_logout(request):
 
 
 def register(request):
-    return render(request,'libapp/register.html')
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+
+        if form.is_valid():
+            user = User.objects.create_user(request.POST.get("username"),request.POST.get("email"),request.POST.get("password"))
+            user.first_name = request.POST.get("fname")
+            user.last_name = request.POST.get("lname")
+            user.save()
+            return HttpResponseRedirect(reverse(('libapp:login')))
+        else:
+            return render(request, 'libapp/register.html', {'form': form})
+    else:
+        form = RegisterForm()
+        return render(request, 'libapp/register.html', {'form': form})
+
 
 def myitems(request):
     if request.user.is_authenticated():
@@ -168,3 +187,8 @@ def myitems(request):
         return render(request,'libapp/myitems.html',{'checked_out':checked_out})
     else:
         return HttpResponse('You are not a LibUser')
+
+def info(request,item_id):
+    suggestionlist = Suggestion.objects.all()
+    return render(request,'libapp/info.html',{'suggestionlist':suggestionlist,'item_id':item_id})
+

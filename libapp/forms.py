@@ -1,5 +1,6 @@
 from django import forms
-from libapp.models import Suggestion
+from libapp.models import Suggestion,User
+from libapp.validators import validate_pubyr
 
 class SuggestionForm(forms.ModelForm):
     class Meta:
@@ -7,7 +8,7 @@ class SuggestionForm(forms.ModelForm):
         fields=['title','pubyr','type','cost','comments']
     choice = [('2','Dvd'),('1','Book')]
     title = forms.CharField(label='Title',max_length=100)
-    pubyr = forms.IntegerField(label='Publication Year')
+    pubyr = forms.IntegerField(label='Publication Year',validators=[validate_pubyr])
     type = forms.ChoiceField(label='Type',choices = choice,widget=forms.RadioSelect)
     cost = forms.IntegerField(label='Estimated Cost in Dollars')
     comments = forms.CharField(label='Comments')
@@ -24,3 +25,15 @@ class LoginForm(forms.Form):
 
     username = forms.CharField(label='Username')
     password = forms.CharField(widget=forms.PasswordInput())
+
+
+class RegisterForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['fname','lname','username','password','email']
+
+    fname = forms.CharField(label='First Name')
+    lname = forms.CharField(label='Last Name')
+    username = forms.CharField(label='Username')
+    password = forms.CharField(widget=forms.PasswordInput())
+    email = forms.EmailField(label='Email')

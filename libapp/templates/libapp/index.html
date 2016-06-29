@@ -1,9 +1,5 @@
 {% extends 'libapp/base.html' %}
-{% block myhdg %}
 
-    Hello {{ name.first_name }}
-
-{% endblock %}
 {% block body_block %}
     <div class="luckynum">
     {% if request.user.is_authenticated %}

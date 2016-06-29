@@ -11,5 +11,6 @@ urlpatterns = [
         url(r'^login$',views.user_login,name='login'),
         url(r'^register$',views.register,name='register'),
         url(r'^logout$',views.user_logout,name='logout'),
-        url(r'^myitems$',views.myitems,name='myitems')
+        url(r'^myitems$',views.myitems,name='myitems'),
+        url(r'^info/(?P<item_id>\d+)/$',views.info,name='info')
         ]

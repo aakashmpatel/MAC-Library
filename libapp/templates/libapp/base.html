@@ -12,19 +12,21 @@
 
 <body>
 {% if request.user.is_authenticated %}
+    <h1>{% block myhdg %}Hello {{ request.user.first_name }} {% endblock %}</h1>
+
 <div class="now">
     <a class="logout" href="{% url 'libapp:logout' %}">Logout</a>
     <a class="myitems" href="{% url 'libapp:myitems' %}">MyItems</a>
 </div>
 {% else %}
+    <h1>{% block myhdg1 %}Hello Guest {% endblock %}</h1>
 <div class="now">
     <a class="login" href="{% url 'libapp:login' %}">Login</a>
     <a class="register" href="{% url 'libapp:register' %}">Register</a>
 </div>
 {% endif %}
 <div>
-<h1>{% block myhdg %}Hello {{ request.user.first_name }} {% endblock %}</h1>
-            {% block body_block %}*** {% endblock %}
+ {% block body_block %}*** {% endblock %}
 </div>
 <hr />
 <div>
