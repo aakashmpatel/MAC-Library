@@ -6,19 +6,26 @@
 </head>
 <body>
 {% extends 'libapp/base.html' %}
+
 {% block body_block %}
+
     <form action="{% url 'libapp:search' %}" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
         <input type="submit" value="Search">
-</form>
+
+    </form>
+
     {% for result in booklist %}
-            <ul>
+        <ul>
             <li>Book</li>
             <li>{{ result.title }} {{ result.author }}</li>
-
-            </ul>
+        </ul>
     {% endfor %}
+
      {% for result in dvdlist %}
             <ul>
             <li>DVD</li>

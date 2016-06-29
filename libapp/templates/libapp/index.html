@@ -1,29 +1,42 @@
 {% extends 'libapp/base.html' %}
-{% block myhdg %}
 
-    Hello {{ name.first_name }}
-
-{% endblock %}
 {% block body_block %}
-    <div class="luckynum">
-    {% if request.user.is_authenticated %}
-    <p>Lucky Num : {{ request.session.luckynum }}</p>
-    {% else %}
-    <p>Lucky Num : 0 </p>
-    {% endif %}
-    </div>
-    {% if itemlist %}
-        <h2>List of Library items</h2>
-        <ol>
-            {% for item in itemlist %}
-                <li><a href="{% url 'libapp:detail' item.id %}"> {{ item.itemtype }}:  {{ item.title}} </a></li>
-            {% endfor %}
-        </ol>
 
+    <div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <h2 class="text-center">List of Library items</h2>
+        </div>
+    </div>
+    </div>
+
+
+    {% if itemlist %}
+
+        <div class="col-md-12">
+
+                <div class="col-md-4 col-md-offset-3">
+                    <h1><i class="fa fa-book" aria-hidden="true">Book</i></h1>
+                    {% for item in itemlist %}
+                        {% if item.itemtype == "Book" %}
+                            <h4 style="padding-top: 8%"><a href="{% url 'libapp:detail' item.id %}">{{ item.title}}</a></h4>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div class="col-md-4">
+                    <h1><i class="glyphicon glyphicon-cd" aria-hidden="true">DVD</i></h1>
+                    {% for item in itemlist %}
+                    {% if item.itemtype == "DVD" %}
+                        <h4 style="padding-top: 8%"><a href="{% url 'libapp:detail' item.id %}">{{ item.title}}</a></h4>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+
+
+        </div>
     {% else %}
         <strong>There are no available items!</strong>
     {% endif %}
 
-
 {% endblock %}
-

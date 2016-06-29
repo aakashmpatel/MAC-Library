@@ -3,43 +3,74 @@
 
 <html>
 <head>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="{% static 'libapp/style.css' %}" />
 
-<title>MAC Library APP - {% block title %}Welcome!{% endblock %}</title>
+    <title>SKAP Library</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">
+    <script src="https://use.fontawesome.com/e574078331.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'libapp/style.css' %}" />
+
+
 </head>
 
 <body>
-{% if request.user.is_authenticated %}
-<div class="now">
-    <a class="logout" href="{% url 'libapp:logout' %}">Logout</a>
-    <a class="myitems" href="{% url 'libapp:myitems' %}">MyItems</a>
-</div>
-{% else %}
-<div class="now">
-    <a class="login" href="{% url 'libapp:login' %}">Login</a>
-    <a class="register" href="{% url 'libapp:register' %}">Register</a>
-</div>
-{% endif %}
-<div>
-<h1>{% block myhdg %}Hello {{ request.user.first_name }} {% endblock %}</h1>
-            {% block body_block %}*** {% endblock %}
-</div>
-<hr />
-<div>
-<ul>
 
-    <footer>
-        <li class="hbar1"><a href = "{% url 'libapp:index' %}">Click here to return to main page</a><br/></li>
-        <li class="hbar1"><a href="{% url 'libapp:about' %}">About page</a></li>
-    </footer>
-</ul>
+<nav class="navbar navbar-default">
+
+    <div class="container-fluid">
+
+      <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href = "{% url 'libapp:index' %}">SKAP Library</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'libapp:about' %}">About</a></li>
+          {% if request.user.is_authenticated %}
+            <li><a href="{% url 'libapp:suggestions' %}">Suggestions</a></li>
+            <li><a href="{% url 'libapp:search' %}">Search</a></li>
+          {% endif %}
+      </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+
+            {% if request.user.is_authenticated %}
+
+                <li><a href="{% url 'libapp:myitems' %}">{{ request.user.first_name }}&apos;s Items</a></li>
+                <li><a href="javascript:void(0)">{{ request.user.first_name }}&apos;s Lucky Number : {{ request.session.luckynum }}</a></li>
+                <li><a href="{% url 'libapp:logout' %}">Logout</a></li>
+
+            {% else %}
+                <li><a href="{% url 'libapp:login' %}">Login</a></li>
+                <li><a href="{% url 'libapp:register' %}">Register</a></li>
+            {% endif %}
+
+        </ul>
+
+    </div><!-- /.navbar-collapse -->
+
+    </div><!-- /.container-fluid -->
+
+</nav>
+
+<div>
+    {% block body_block %}*** {% endblock %}
 </div>
+
 </body>
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </html>

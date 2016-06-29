@@ -7,17 +7,41 @@
 <body>
 {% extends 'libapp/base.html' %}
 {% block body_block %}
-    {% if checked_out %}
-        <h2>List of Items Checked out By You:</h2>
-    {% for item in checked_out %}
-        <ol>
-            {{ item.itemtype }} {{ item.title}} {{ item.pubyr }}
-        </ol>
-    {% endfor %}
 
+    {% if checked_out %}
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center padding-3">List of items checked out by you</h2>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+                <tr>
+                    <th>ITEM TYPE</th>
+                    <th>ITEM TITLE</th>
+                    <th>ITEM PUBLICATION YEAR</th>
+                </tr>
+
+            {% for item in checked_out %}
+                 <tr>
+                    <td>{{ item.itemtype }}</td>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.pubyr }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+    </div>
     {% else %}
         <h2>You are not a Lib User</h2>
     {% endif %}
+
+
+
+
 {% endblock %}
 </body>
 </html>
