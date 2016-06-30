@@ -7,6 +7,7 @@
 <body>
 {% extends 'libapp/base.html' %}
 {% block body_block %}
+<<<<<<< HEAD
 
     <form class="form-horizontal" action="{% url 'libapp:register' %}" method="post">
 
@@ -60,6 +61,14 @@
 
     </form>
 
+=======
+<form action="{% url 'libapp:register' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {{ upload }}
+        <input type="submit" value="Register">
+</form>
+>>>>>>> 239430217a857472dac71278789be7b15a676cfe
 {% endblock %}
 </body>
 </html>

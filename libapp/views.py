@@ -176,12 +176,15 @@ def register(request):
             user.last_name = request.POST.get("lname")
             user.save()
 
+<<<<<<< HEAD
             profile = profile_form.save(commit=False)
             profile.user = user
 
             if 'picture' in request.FILES:
                 profile.picture = request.FILES['picture']
             profile.save()
+=======
+>>>>>>> 239430217a857472dac71278789be7b15a676cfe
             return HttpResponseRedirect(reverse(('libapp:login')))
         else:
             return render(request, 'libapp/register.html', {'form': form})

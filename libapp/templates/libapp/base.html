@@ -19,6 +19,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
 
 <nav class="navbar navbar-default">
 
@@ -70,6 +71,22 @@
 
 <div>
     {% block body_block %}*** {% endblock %}
+=======
+{% if request.user.is_authenticated %}
+<div class="now">
+    <a class="logout" href="{% url 'libapp:logout' %}">Logout</a>
+    <a class="myitems" href="{% url 'libapp:myitems' %}">MyItems</a>
+</div>
+{% else %}
+<div class="now">
+    <a class="login" href="{% url 'libapp:login' %}">Login</a>
+    <a class="register" href="{% url 'libapp:register' %}">Register</a>
+</div>
+{% endif %}
+<div>
+<h1>{% block myhdg %}Hello {{ request.user.first_name }} {% endblock %}</h1>
+            {% block body_block %}*** {% endblock %}
+>>>>>>> 239430217a857472dac71278789be7b15a676cfe
 </div>
 
 </body>

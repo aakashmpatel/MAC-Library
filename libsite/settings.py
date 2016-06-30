@@ -122,6 +122,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+<<<<<<< HEAD
 MEDIA_ROOT = '/Users/Aakash/PycharmProjects/libsite/libapp/media/'
 
 MEDIA_URL = '/media/'
+=======
+
+>>>>>>> 239430217a857472dac71278789be7b15a676cfe

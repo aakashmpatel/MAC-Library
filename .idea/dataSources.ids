@@ -139,6 +139,7 @@
       <column name="province" sqlType="VARCHAR(2)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <column name="phone" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
       <column name="postalcode" sqlType="VARCHAR(7)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="upload" sqlType="VARCHAR(100)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
       <primary-key columns="user_ptr_id"/>
       <foreign-key name="#FAKE_libapp_libuser_1" columns="user_ptr_id" ref-table="auth_user" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
     </table>

@@ -1,5 +1,9 @@
 from django import forms
+<<<<<<< HEAD
 from libapp.models import Suggestion,User,UserProfile
+=======
+from libapp.models import Suggestion,User,LibUser
+>>>>>>> 239430217a857472dac71278789be7b15a676cfe
 from libapp.validators import validate_pubyr
 
 class SuggestionForm(forms.ModelForm):
@@ -38,8 +42,11 @@ class RegisterForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
     email = forms.EmailField(label='Email')
 
+<<<<<<< HEAD
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ['picture']
 
+=======
+>>>>>>> 239430217a857472dac71278789be7b15a676cfe

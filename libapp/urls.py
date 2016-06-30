@@ -3,6 +3,7 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 urlpatterns = [
         url(r'^$', views.index, name='index'),
         url(r'^about$', views.about, name='about'),
@@ -15,5 +16,10 @@ urlpatterns = [
         url(r'^logout$',views.user_logout,name='logout'),
         url(r'^myitems$',views.myitems,name='myitems'),
         url(r'^info/(?P<item_id>\d+)/$',views.info,name='info')
+<<<<<<< HEAD
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+=======
+        ]
+
+>>>>>>> 239430217a857472dac71278789be7b15a676cfe
