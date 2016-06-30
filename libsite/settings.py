@@ -122,6 +122,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-FIXTURE_DIRS = (
-   '/Users/Aakash/Desktop',
-)
+

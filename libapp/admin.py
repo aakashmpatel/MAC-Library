@@ -28,6 +28,8 @@ class LibUserAdmin(admin.ModelAdmin):
 class BookAdmin(admin.ModelAdmin):
     fields = [('title', 'author', 'pubyr'), ('checked_out', 'itemtype', 'user', 'duedate'),'category']
     list_display = ('title', 'borrower','overdue')
+    list_filter = ('category',)
+    search_fields = ('title',)
 
     def borrower(self, obj=None):
         if obj.checked_out == True:

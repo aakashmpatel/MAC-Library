@@ -3,6 +3,7 @@ import datetime
 from django.contrib.auth.models import User
 
 # Create your models here.
+
 class LibUser(User):
     PROVINCE_CHOICES = (
         ('AB','Alberta'),
@@ -16,6 +17,7 @@ class LibUser(User):
     province = models.CharField(max_length=2, choices=PROVINCE_CHOICES, default='ON')
     phone = models.IntegerField(null=True)
     postalcode = models.CharField(null=True,blank=True,max_length=7)
+    upload = models.FileField(null=True,blank=True,upload_to='uploads/%Y/%m/%d/')
 
 class Libitem(models.Model):
     TYPE_CHOICES = (

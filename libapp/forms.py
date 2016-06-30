@@ -1,5 +1,5 @@
 from django import forms
-from libapp.models import Suggestion,User
+from libapp.models import Suggestion,User,LibUser
 from libapp.validators import validate_pubyr
 
 class SuggestionForm(forms.ModelForm):
@@ -37,3 +37,4 @@ class RegisterForm(forms.ModelForm):
     username = forms.CharField(label='Username')
     password = forms.CharField(widget=forms.PasswordInput())
     email = forms.EmailField(label='Email')
+

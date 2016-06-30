@@ -173,6 +173,7 @@ def register(request):
             user.first_name = request.POST.get("fname")
             user.last_name = request.POST.get("lname")
             user.save()
+
             return HttpResponseRedirect(reverse(('libapp:login')))
         else:
             return render(request, 'libapp/register.html', {'form': form})
