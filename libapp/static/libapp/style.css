@@ -1,48 +1,33 @@
 body{
-    font-family: 'Source Sans Pro';
-    background-image: url("http://worrydream.com/InteractiveLibrary/Images/BookBackground.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    position:relative;
-    overflow-x: hidden;
+    font-family: 'Assistant', sans-serif;
+    padding-bottom: 70px;
 }
 
-.luckynum > p{
-    text-align: right;
-    padding-right: 15%;
-    background-color: darkgreen;
-    color: white;
+.navbar-fixed-bottom{
+    background-color: #eee;
 }
 
-.now{
-    position: absolute;
-    right: 60px;
-    top: 10px;
-}
-
-.now > a{
-    margin:5px;
-}
-
-.loginform{
-    padding-left: 100px;
-
-}
-h1{
-    background-color: inherit;
-    color: black;
-    font-size: large;
-    font-style: normal;
-    position: inherit;
-    font-family: 'Source Sans Pro', sans-serif;
-    text-align: center;
-    padding-right: 75px;
-}
-h2{
-    font-family: 'Source Sans Pro', sans-serif;
+.table td, th{
     text-align: center;
 }
-.hbar1 {
-display: inline-block;
-margin: 15px;
+
+.padding-3{
+    padding-bottom: 3%;
+}
+
+.navbar .navbar-nav li{
+    color: #000;
+}
+
+.fa-book{
+    font-size: 100px !important;
+}
+
+.glyphicon-cd{
+    font-size: 100px;
+}
+
+.index_heading{
+    font-size: 60px;
+    border-bottom: 3px solid #aaa;
 }
