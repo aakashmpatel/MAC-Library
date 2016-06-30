@@ -90,3 +90,9 @@ class Suggestion(models.Model):
     def __str__(self):
         return self.title
 
+class UserProfile(models.Model):
+    user = models.OneToOneField(User)
+    picture = models.ImageField(upload_to='profile_images',blank=True)
+
+    def __str__(self):
+        return self.user.username

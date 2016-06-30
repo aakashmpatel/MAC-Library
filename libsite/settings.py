@@ -122,6 +122,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-FIXTURE_DIRS = (
-   '/Users/Aakash/Desktop',
-)
+MEDIA_ROOT = '/Users/Aakash/PycharmProjects/libsite/libapp/media/'
+
+MEDIA_URL = '/media/'

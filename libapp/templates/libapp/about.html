@@ -1,16 +1,38 @@
-<!DOCTYPE html>
+{% extends 'libapp/base.html' %}
+{% load staticfiles %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>About </title>
+    <title>About | SKAP Library</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">
+    <script src="https://use.fontawesome.com/e574078331.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'libapp/style.css' %}" />
 </head>
 <body>
-{% extends 'libapp/base.html' %}
-{% block body_block %}
-<p><a href="{% url 'libapp:index' %}">Home Page</a></p> #Url Namespacing
-<p><a href="/libapp/">Home page</a></p>   #Hard-coded
 
-    <h3>Page has been visited: {{ visit  }}</h3>
+{% block body_block %}
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h2>
+                    SKAP Library is a place that contains collection of Books and DVD's that the folks can rent out. We offer premier services to all and always take care of our customers to the fullest. We always make sure that we provide the best we can and has been rated positively by most of the community using our services.
+                </h2>
+            </div>
+        </div>
+        <div class="navbar navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="row text-center">
+                <p style="padding-top: 10px;">Page visited {{ visit }} times.</p>
+            </div>
+        </div>
+        </div>
 {% endblock %}
 </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </html>

@@ -3,8 +3,8 @@ import pprint
 import random
 # Create your views here.
 from django.http import HttpResponse,Http404,HttpResponseRedirect
-from libapp.models import Book, Dvd, LibUser, Libitem,Suggestion,User
-from libapp.forms import SuggestionForm,SearchlibForm,LoginForm,RegisterForm
+from libapp.models import Book, Dvd, LibUser, Libitem,Suggestion,User,UserProfile
+from libapp.forms import SuggestionForm,SearchlibForm,LoginForm,RegisterForm,UserProfileForm
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404
 from django.contrib.auth import authenticate, login, logout
@@ -152,7 +152,9 @@ def user_login(request):
             else:
                 return HttpResponse('Your account is disabled.')
         else:
-            return HttpResponse('Invalid login details.')
+            form = LoginForm()
+
+            return HttpResponseRedirect(reverse('libapp:login'),'Invalid Login Details')
     else:
         form = LoginForm()
 
@@ -167,18 +169,26 @@ def user_logout(request):
 def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
-
-        if form.is_valid():
+        profile_form = UserProfileForm(request.POST,request.FILES)
+        if form.is_valid() and profile_form.is_valid():
             user = User.objects.create_user(request.POST.get("username"),request.POST.get("email"),request.POST.get("password"))
             user.first_name = request.POST.get("fname")
             user.last_name = request.POST.get("lname")
             user.save()
+
+            profile = profile_form.save(commit=False)
+            profile.user = user
+
+            if 'picture' in request.FILES:
+                profile.picture = request.FILES['picture']
+            profile.save()
             return HttpResponseRedirect(reverse(('libapp:login')))
         else:
             return render(request, 'libapp/register.html', {'form': form})
     else:
         form = RegisterForm()
-        return render(request, 'libapp/register.html', {'form': form})
+        profile_form = UserProfileForm()
+        return render(request, 'libapp/register.html', {'form': form,'profile_form':profile_form})
 
 
 def myitems(request):

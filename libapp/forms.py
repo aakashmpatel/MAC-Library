@@ -1,5 +1,5 @@
 from django import forms
-from libapp.models import Suggestion,User
+from libapp.models import Suggestion,User,UserProfile
 from libapp.validators import validate_pubyr
 
 class SuggestionForm(forms.ModelForm):
@@ -7,11 +7,11 @@ class SuggestionForm(forms.ModelForm):
         model= Suggestion
         fields=['title','pubyr','type','cost','comments']
     choice = [('2','Dvd'),('1','Book')]
-    title = forms.CharField(label='Title',max_length=100)
-    pubyr = forms.IntegerField(label='Publication Year',validators=[validate_pubyr])
-    type = forms.ChoiceField(label='Type',choices = choice,widget=forms.RadioSelect)
-    cost = forms.IntegerField(label='Estimated Cost in Dollars')
-    comments = forms.CharField(label='Comments')
+    title = forms.CharField(label='Title',max_length=100,widget=forms.TextInput(attrs={'class': "form-control"}))
+    pubyr = forms.IntegerField(label='Publication Year',validators=[validate_pubyr],widget=forms.TextInput(attrs={'class': "form-control"}))
+    type = forms.ChoiceField(label='Type',choices = choice,widget=forms.RadioSelect())
+    cost = forms.IntegerField(label='Estimated Cost in Dollars',widget=forms.TextInput(attrs={'class': "form-control"}))
+    comments = forms.CharField(label='Comments',widget=forms.TextInput(attrs={'class': "form-control"}))
 
 class SearchlibForm(forms.Form):
     class Meta:
@@ -37,3 +37,9 @@ class RegisterForm(forms.ModelForm):
     username = forms.CharField(label='Username')
     password = forms.CharField(widget=forms.PasswordInput())
     email = forms.EmailField(label='Email')
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['picture']
+

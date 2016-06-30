@@ -1,5 +1,5 @@
 from django.contrib import admin
-from libapp.models import Book, Dvd, LibUser, Libitem,Suggestion
+from libapp.models import Book, Dvd, LibUser, Libitem,Suggestion,UserProfile
 import datetime
 # Register your models here.
 
@@ -28,7 +28,8 @@ class LibUserAdmin(admin.ModelAdmin):
 class BookAdmin(admin.ModelAdmin):
     fields = [('title', 'author', 'pubyr'), ('checked_out', 'itemtype', 'user', 'duedate'),'category']
     list_display = ('title', 'borrower','overdue')
-
+    list_filter = ('category',)
+    search_fields = ('title',)
     def borrower(self, obj=None):
         if obj.checked_out == True:
             return obj.user     #Returns the user who has borrowed this book
@@ -51,3 +52,4 @@ admin.site.register(Book,BookAdmin)
 admin.site.register(Dvd,DvdAdmin)
 admin.site.register(LibUser,LibUserAdmin)
 admin.site.register(Suggestion)
+admin.site.register(UserProfile)

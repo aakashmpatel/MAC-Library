@@ -7,10 +7,106 @@
 <body>
 {% extends 'libapp/base.html' %}
 {% block body_block %}
-    <form action="{% url 'libapp:newitem' %}" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-        <input type="submit" value="Submit">
+
+    <form class="form-horizontal" action="{% url 'libapp:newitem' %}" method="post">
+
+        <div class="form-group">
+            <label for="id_title" class="col-sm-2 control-label">Title:</label>
+        <div class="col-sm-8">
+          {{ form.title }}
+            <div>
+
+
+            <span class="alert alert-error">
+            {% if form.errors %}
+    {% for field in form %}
+            {% if field.name == 'title' %}
+                {{ field.errors }}
+                {% endif %}
+            {% endfor %}
+
+                 {% endif %}
+            </span>
+
+
+            </div>
+        </div>
+
+      </div>
+        <div class="form-group">
+            <label for="id_pubyr" class="col-sm-2 control-label">Publication Year:</label>
+        <div class="col-sm-8">
+          {{ form.pubyr }}
+
+            <span class="alert alert-error">
+            {% if form.errors %}
+    {% for field in form %}
+            {% if field.name == 'pubyr' %}
+                {{ field.errors }}
+                {% endif %}
+            {% endfor %}
+
+                 {% endif %}
+            </span>
+        </div>
+      </div>
+         <div class="form-group">
+            <label for="id_type" class="col-sm-2 control-label">Type:</label>
+        <div class="col-sm-8">
+          {{ form.type }}
+
+            <span class="alert alert-error">
+            {% if form.errors %}
+    {% for field in form %}
+            {% if field.name == 'type' %}
+                {{ field.errors }}
+                {% endif %}
+            {% endfor %}
+
+                 {% endif %}
+            </span>
+        </div>
+      </div>
+         <div class="form-group">
+            <label for="id_cost" class="col-sm-2 control-label">Cost:</label>
+        <div class="col-sm-8">
+          {{ form.cost }}
+
+            <span class="alert alert-error">
+            {% if form.errors %}
+    {% for field in form %}
+            {% if field.name == 'cost' %}
+                {{ field.errors }}
+                {% endif %}
+            {% endfor %}
+
+                 {% endif %}
+            </span>
+        </div>
+      </div>
+         <div class="form-group">
+            <label for="id_comments" class="col-sm-2 control-label">Comments:</label>
+        <div class="col-sm-8">
+          {{ form.comments }}
+
+            <span class="alert alert-error">
+            {% if form.errors %}
+    {% for field in form %}
+            {% if field.name == 'comments' %}
+                {{ field.errors }}
+                {% endif %}
+            {% endfor %}
+
+                 {% endif %}
+            </span>
+        </div>
+      </div>
+<div class="form-group">
+            <div class="col-sm-offset-2 col-sm-6">
+                <button type="submit" class="btn btn-primary">Create</button>
+                {% csrf_token %}
+            </div>
+        </div>
 </form>
 {% endblock %}
 </body>
