@@ -30,10 +30,7 @@ class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'borrower','overdue')
     list_filter = ('category',)
     search_fields = ('title',)
-<<<<<<< HEAD
-=======
 
->>>>>>> 239430217a857472dac71278789be7b15a676cfe
     def borrower(self, obj=None):
         if obj.checked_out == True:
             return obj.user     #Returns the user who has borrowed this book
